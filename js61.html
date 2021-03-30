@@ -1,0 +1,34 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 13. js61</title>
+</head>
+
+<body>
+    <form name="my0" action="serv1.php" method="post">
+        <input name="one" value="1">
+        <input name="two" value="2">
+    </form>
+    <form name="my1" action="serv2.php" method="get">
+        <input type="radio" name="age" value="20">
+        <input type="radio" name="age" value="30">
+    </form>
+
+    <script>
+
+        alert(my0.elements.one.value);
+        alert(my0.two.value);
+        for (elem of my1.age)
+            alert(elem.value);
+
+        for (let i = 0; i < my1.age.length; i++) {
+            alert(my1.age[i].value);
+        }
+
+    </script>
+</body>
+
+</html>

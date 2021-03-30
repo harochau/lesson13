@@ -1,0 +1,33 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 13. js60</title>
+</head>
+
+<body>
+    <form name="my0" action="serv1.php" method="post"></form>
+    <form name="my1" action="serv2.php" method="get"></form>
+
+    <script>
+
+        let myform = document.forms;
+        // for (form of myform){
+
+        // }
+        for (let i = 0; i < myform.length; i++) {
+            alert(myform[i].name);
+
+
+
+        }
+        alert(myform.my0.action);
+        alert(myform.my1.action);
+        alert(my0.method);
+        alert(my1.method);
+    </script>
+</body>
+
+</html>

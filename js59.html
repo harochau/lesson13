@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 13. js59</title>
+</head>
+
+<body>
+    <!-- form -->
+    <!-- submit -->
+    <p class="status">Форма отправится через <span></span> сек</p>
+    <script>
+        let f = document.createElement("form");
+        f.setAttribute("class", "submit-form");
+        // f.setAttribute("action","serv.php");
+        f.action = "serv.php";
+        f.method = "post"; //не использовать передачу через строку адреса
+        f.name = "form1";
+        f.enctype = "multipart/form-data";
+        document.body.append(f);
+        t = 5;
+        timer = document.querySelector(".status > span");
+        time();
+
+        function time() {
+            if (t >= 0) {
+                timer.innerHTML = t;
+                t--;
+                setTimeout(time, 1000);
+            } else {
+                f.submit();
+
+            }
+        }
+
+
+    </script>
+    <!-- <form action="" enctype="multipart/form-data"></form> -->
+</body>
+
+</html>

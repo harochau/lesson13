@@ -1,0 +1,121 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson13. js62_2</title>
+    <style>
+        input::placeholder {
+            color: white;
+        }
+
+        input {
+            padding-left: 5px;
+            width: 100%;
+            box-sizing: content-box;
+            /* border: 0; */
+            border: 3px solid #aca;
+        }
+
+        form {
+            width: 250px;
+            margin: 0 auto;
+            /* border: 1px solid blue; */
+        }
+
+        fieldset {
+            margin-bottom: 10px;
+        }
+
+        fieldset input {
+            display: inline;
+            width: 10%;
+        }
+
+        input:in-range {
+            background: #cfc;
+        }
+
+        input:out-of-range {
+            background: hotpink;
+        }
+
+        input:focus {
+            border: 3px solid blue;
+            background: indianred;
+            outline: none;
+            /* вторая рамка */
+        }
+    </style>
+</head>
+
+<body>
+    <form name="my1" action="serv1.php">
+        <fieldset name="age">
+            <legend>Выберите возраст</legend>
+            <input type="radio" name="n1" id="r1" value="1">
+            <label for="r1">До 30 лет</label><br>
+            <input type="radio" name="n1" id="r2" value="2">
+            <label for="r2">30-50 лет</label><br>
+            <input type="radio" name="n1" id="r3" value="3">
+            <label for="r3">Больше 50 лет</label><br>
+        </fieldset>
+
+        <fieldset name="hobby">
+            <legend>Ваши увлечения</legend>
+            <input type="checkbox" name="n2" id="b1" value="1">
+            <label for="b1">Спорт</label><br>
+            <input type="checkbox" name="n2" id="b2" value="2">
+            <label for="b2">Туризм</label><br>
+            <input type="checkbox" name="n2" id="b3" value="3">
+            <label for="b3">Сериалы</label><br>
+        </fieldset>
+
+
+
+        <input id="send" type="submit" value="Отправить">
+        <input id="warn" type="reset" value="Очистить">
+
+    </form>
+    <script>
+        function init() {
+            r1.addEventListener("input", check("r"));
+            b1.addEventListener("input", check("b"));
+
+
+        }
+
+
+        function check(choice) {
+            if (choice == 'r') {
+                // console.log(!r1.checked);
+                if (!r1.checked && !r2.checked && !r3.checked) {
+                    r1.setCustomValidity("Выберите один из вариантов возраста");
+                } else {
+                    r1.setCustomValidity("");
+                }
+            }
+            if (choice == 'b') {
+                console.log(!b1.checked);
+                if (!b1.checked && !b2.checked && !b3.checked) {
+                    b1.setCustomValidity("Выберите один из вариантов хобби");
+                } else {
+                    b1.setCustomValidity("");
+                }
+
+            }
+
+        }
+
+
+
+        // warn.addEventListener("click", conf);
+        send.addEventListener("click", init);
+
+    </script>
+
+
+</body>
+
+</html>

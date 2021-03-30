@@ -1,0 +1,115 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson13. js62_1</title>
+    <style>
+        input::placeholder {
+            color: white;
+        }
+
+        input {
+            padding-left: 5px;
+            width: 100%;
+            box-sizing: content-box;
+            /* border: 0; */
+            border: 3px solid #aca;
+        }
+
+        form {
+            width: 250px;
+            margin: 0 auto;
+            /* border: 1px solid blue; */
+        }
+
+        input:in-range {
+            background: #cfc;
+        }
+
+        input:out-of-range {
+            background: hotpink;
+        }
+
+        input:focus {
+            border: 3px solid blue;
+            background: indianred;
+            outline: none;
+            /* вторая рамка */
+        }
+    </style>
+</head>
+
+<body>
+    <form name="my0" action="serv.php">
+        <label for="in1">Имя:</label>
+        <input type="text" name="n1" id="in1" placeholder="Ваше имя" autofocus>
+
+        <label for="in2">Email:</label>
+        <input type="email" name="n2" id="in2" placeholder="Введите email" multiple>
+
+        <label for="in3">Пароль:</label>
+        <input type="password" name="n3" id="in3" placeholder="Введите пароль">
+
+        <label for="in4">Сайт:</label>
+        <input type="url" name="n4" id="in4" placeholder="Введите URL адрес">
+
+        <label for="in6">Телефон:</label>
+        <input type="tel" name="n5" id="in5" placeholder="Введите номер телефона">
+        <!-- телефон не проверяемое поле -->
+
+        <label for="in6">Что будем искать?</label>
+        <input type="search" name="n6" id="in6" placeholder="Строка для поиска" list="mydata">
+        <datalist id="mydata">
+            <option value="футболка Adidas" label="Adidas">
+            <option value="футболка Nike" label="Nike"></option>
+        </datalist>
+
+        <label for="in7">Введите число от 0 до 15 с шагом 5:</label>
+        <input type="number" name="n7" id="in7" placeholder="Введите число" step="6" min="0" max="15">
+
+        <label for="in8">Введите ID:</label>
+        <input pattern="[A-Z]{3}-[0-9]{3}" name="n8" id="in8" title="Формат: ABC-999"
+            placeholder="Введите ID в формате ABC-999">
+
+
+
+        <input id="send" type="submit" value="Отправить">
+        <input id="warn" type="button" value="Очистить">
+
+    </form>
+    <script>
+        function init() {
+            in1.addEventListener("input", check(in1, 'Заполните имя'));
+            in2.addEventListener("input", check(in2, 'Введите свой Email'));
+
+        }
+
+
+        function check(elem, message) {
+            if (elem.value == '') {
+                elem.setCustomValidity(message);
+            } else {
+                elem.setCustomValidity("");
+            }
+        }
+
+        function conf() {
+            let question = confirm("Вы хотите обнулить форму?");
+            if (question) {
+                my0.reset();
+                // warn.removeEventListener("click", conf);
+                //1 разовая кнопка
+            }
+        }
+
+        warn.addEventListener("click", conf);
+        send.addEventListener("click", init);
+
+    </script>
+
+
+</body>
+
+</html>

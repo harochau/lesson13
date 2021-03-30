@@ -1,0 +1,88 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson13. js62</title>
+    <style>
+        input::placeholder {
+            color: white;
+        }
+
+        input {
+            padding-left: 5px;
+            width: 100%;
+            box-sizing: content-box;
+            /* border: 0; */
+            border: 3px solid #aca;
+        }
+
+        form {
+            width: 250px;
+            margin: 0 auto;
+            /* border: 1px solid blue; */
+        }
+
+        input:in-range {
+            background: #cfc;
+        }
+
+        input:out-of-range {
+            background: hotpink;
+        }
+
+        input:focus {
+            border: 3px solid blue;
+            background: indianred;
+            outline: none;
+            /* вторая рамка */
+        }
+    </style>
+</head>
+
+<body>
+    <form name="my0" action="serv.php">
+        <label for="in1">Имя:</label>
+        <input type="text" name="n1" id="in1" value="Вася" placeholder="Ваше имя" autofocus>
+
+        <label for="in2">Email:</label>
+        <input type="email" name="n2" id="in2" value="vasya@email.by" placeholder="Введите email" required multiple>
+
+        <label for="in3">Пароль:</label>
+        <input type="password" name="n3" id="in3" value="cat" placeholder="Введите пароль" required>
+
+        <label for="in4">Сайт:</label>
+        <input type="url" name="n4" id="in4" value="https://google.com" placeholder="Введите URL адрес" required>
+
+        <label for="in6">Телефон:</label>
+        <input type="tel" name="n5" id="in5" value="+375(29)12312312" placeholder="Введите номер телефона" required>
+        <!-- телефон не проверяемое поле -->
+
+        <label for="in6">Что будем искать?</label>
+        <input type="search" name="n6" id="in6" value="Футболка" placeholder="Строка для поиска" list="mydata">
+        <datalist id="mydata">
+            <option value="футболка Adidas" label="Adidas">
+            <option value="футболка Nike" label="Nike"></option>
+        </datalist>
+
+        <label for="in7">Введите число от 0 до 15 с шагом 5:</label>
+        <input type="number" name="n7" id="in7" value="12" placeholder="Введите число" step="6" min="0" max="15"
+            required>
+
+        <label for="in8">Введите ID:</label>
+        <input pattern="[A-Z]{3}-[0-9]{3}" name="n8" id="in8" title="Формат: ABC-999" value="ABC-123"
+            placeholder="Введите ID в формате ABC-999" required>
+
+
+
+        <input type="submit" value="Отправить">
+        <input type="reset" value="Очистить">
+
+    </form>
+
+
+
+</body>
+
+</html>
