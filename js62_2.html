@@ -77,6 +77,20 @@
         <input id="send" type="submit" value="Отправить">
         <input id="warn" type="reset" value="Очистить">
 
+        <!-- Прогресс -->
+        <label for="in3">Обработка</label><br>
+        <progress name="n3" id="in3">работаю...</progress>
+
+        <!-- Прогресс промежуточный-->
+        <br>
+        <label for="in4">Обработка завершена на 75%</label><br>
+        <progress name="n4" id="in4" value="75" max="100">выполнил на 3/4</progress>
+
+        <br>
+        <label for="in5">Загружено 91%</label><br>
+        <meter name="n5" id="in5" min="0" max="100" low="10" high=70" optimum="35" value="20">Загружаю</meter>
+
+
     </form>
     <script>
         function init() {
